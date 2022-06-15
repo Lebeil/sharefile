@@ -1,9 +1,11 @@
-import express from 'express';
-import dotenv from 'dotenv';
+import express = require('express');
+require('dotenv').config({path:'.env'});
+require('./config/db');
 import cors from 'cors';
 
+
 const app = express();
-dotenv.config();
+
 
 app.use(cors());
 
