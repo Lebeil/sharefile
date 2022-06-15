@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"; // put { Document } if error
 
 const Schema = mongoose.Schema;
 
