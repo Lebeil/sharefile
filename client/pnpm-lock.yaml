@@ -22,7 +22,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 18.0.0
-  '@types/react': 17.0.46
+  '@types/react': 17.0.47
   autoprefixer: 10.4.7_postcss@8.4.14
   eslint: 8.17.0
   eslint-config-next: 12.1.6_qwqcuvhue6diaz4jqbkm5dp3pa
@@ -221,8 +221,8 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react/17.0.46:
-    resolution: {integrity: sha512-zNAJVEO9dBEQLPa/OuedGfx92/UlD+1rNxSv2qVWUQZ+orEtLUWFgZ08xfyI9TAZLnmWzZDtssAsgtbXT7Ew0g==}
+  /@types/react/17.0.47:
+    resolution: {integrity: sha512-mk0BL8zBinf2ozNr3qPnlu1oyVTYq+4V7WA76RgxUAtf0Em/Wbid38KN6n4abEkvO4xMTBWmnP1FtQzgkEiJoA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -472,7 +472,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001355
-      electron-to-chromium: 1.4.158
+      electron-to-chromium: 1.4.160
       escalade: 3.1.1
       node-releases: 2.0.5
       picocolors: 1.0.0
@@ -653,8 +653,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /electron-to-chromium/1.4.158:
-    resolution: {integrity: sha512-gppO3/+Y6sP432HtvwvuU8S+YYYLH4PmAYvQwqUtt9HDOmEsBwQfLnK9T8+1NIKwAS1BEygIjTaATC4H5EzvxQ==}
+  /electron-to-chromium/1.4.160:
+    resolution: {integrity: sha512-O1Z12YfyeX2LXYO7MdHIPazGXzLzQnr1ADW55U2ARQsJBPgfpJz3u+g3Mo2l1wSyfOCdiGqaX9qtV4XKZ0HNRA==}
     dev: true
 
   /emoji-regex/9.2.2:
