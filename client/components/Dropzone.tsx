@@ -1,9 +1,10 @@
-import React, {useCallback} from 'react';
+import React, {Dispatch, FunctionComponent, useCallback} from 'react';
 import {useDropzone} from "react-dropzone";
 
-const Dropzone = () => {
+const Dropzone:FunctionComponent<{setFile:Dispatch<any>}> = ({setFile}) => {
     const onDrop = useCallback((acceptedFiles)=> {
         console.log(acceptedFiles);
+        setFile(acceptedFiles[0])
     }, []);
 
     const { getRootProps, getInputProps, isDragAccept, isDragReject } = useDropzone({
@@ -20,11 +21,11 @@ const Dropzone = () => {
             <div {...getRootProps()} className="w-full rounded-md cursor-pointer h-80 focus:outline-none">
                 <input {...getInputProps()} />
                 <div className={`flex flex-col items-center justify-center h-full space-y-3 border-2 border-dashed border-yellow-light rounded-xl
-                ${isDragReject === true ? 'bg-red-500' : ''}` + `${isDragAccept === true ? 'bg-green-500' : ''}`}
+                ${isDragReject === true ? 'border-red-500' : ''} + ${isDragAccept === true ? 'border-green-500' : ''}`}
                     >
                     <img src="/images/folder.png" alt="folder" className="w-16 h-16"/>
                     {isDragReject ? (
-                        <p className="text-red-500">Sorry, only supports images and mp3</p>
+                        <p className="text-white">Sorry, only supports images and mp3</p>
                     ) : (
                         <div>
                             <p>Drag & Drop Files Here</p>
