@@ -1,6 +1,6 @@
 export interface IFile {
     name: string,
-    sizeInBytes: string,
+    sizeInBytes: number,
     format: string,
     id?: string
 }
