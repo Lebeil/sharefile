@@ -2,16 +2,17 @@ import Dropzone from '../components/Dropzone'
 import React, {useState} from "react";
 import RenderFile from "../components/RenderFile";
 import axios from "axios";
+import DownloadFile from "../components/DownloadFile";
 
 export default function Home() {
-    const [file , setFile] = useState(null);
+    const [file, setFile] = useState(null);
     const [id, setId] = useState(null);
     const [downloadPageLink, setDownloadPageLink] = useState(null);
 
-    const [uploadState, setUploadState] = useState<("Uploading"|"Upload Failed"|"Uploaded"|"Upload")>("Upload");
+    const [uploadState, setUploadState] = useState<"Uploading" | "Upload Failed" | "Uploaded" | "Upload">("Upload");
 
-    const handleUpload = async ()=> {
-        if(uploadState === "Uploading") return;
+    const handleUpload = async () => {
+        if (uploadState === "Uploading") return;
         setUploadState("Uploading");
         const formData = new FormData();
         formData.append("myFile", file);
@@ -26,7 +27,7 @@ export default function Home() {
             });
             setDownloadPageLink(data.downloadPageLink);
             setId(data.id);
-        } catch(err) {
+        } catch (err) {
             console.log(err.response.data);
             setUploadState("Upload Failed");
         }
@@ -49,7 +50,25 @@ export default function Home() {
                 }
 
                 {/*upload button*/}
-                <button className="p-2 my-5 bg-gray-900 rounded-md w-44 focus:outline-none" onClick={handleUpload}>{uploadState}</button>
+                {!downloadPageLink && file &&
+                    <button
+                        className="p-2 my-5 bg-gray-900 rounded-md w-44 focus:outline-none"
+                        onClick={handleUpload}
+                    >
+                        {uploadState}
+                    </button>
+                }
+
+                {/*copie and paste*/}
+                {downloadPageLink &&
+                    <div className="p-2 text-center">
+                        <DownloadFile downloadPageLink={downloadPageLink}/>
+                        <button className="p-2 my-5 bg-gray-900 rounded-md w-44 focus:outline-none">Upload New File</button>
+                    </div>
+                }
+
+                {/*Email form*/}
+
             </div>
         </div>
 
