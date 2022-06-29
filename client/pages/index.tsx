@@ -57,7 +57,7 @@ export default function Home() {
                 {/*upload button*/}
                 {!downloadPageLink && file &&
                     <button
-                        className="p-2 my-5 bg-gray-900 rounded-md w-44 focus:outline-none"
+                        className="button"
                         onClick={handleUpload}
                     >
                         {uploadState}
@@ -69,7 +69,7 @@ export default function Home() {
                     <div className="p-2 text-center">
                         <DownloadFile downloadPageLink={downloadPageLink}/>
                         <button
-                            className="p-2 my-5 bg-gray-900 rounded-md w-44 focus:outline-none"
+                            className="button"
                             onClick={resetComponent}
                         >
                             Upload New File
