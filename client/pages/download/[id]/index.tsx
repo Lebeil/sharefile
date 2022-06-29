@@ -3,10 +3,23 @@ import {GetServerSidePropsContext, NextPage} from "next";
 import axios from "axios";
 import {IFile} from "../../../libs/types";
 import RenderFile from "../../../components/RenderFile";
+import fileDownload from 'js-file-download';
+
 
 const index: NextPage<{
     file: IFile
 }> = ({file:{format, name, sizeInBytes, id}}) => {
+
+    const handleDownload = async ()=> {
+        const { data } = await axios.get(
+                `http://localhost:5001/api/files/${id}/download`,
+                {
+                    responseType: "blob",
+                }
+            );
+        fileDownload(data, name);
+    }
+
     return (
         <div className="flex flex-col items-center justify-center py-3 space-y-4 bg-gray-800 rounded-md shadow-xl w-96">
             {!id ? (
@@ -16,7 +29,7 @@ const index: NextPage<{
                     <img src="/images/download.png" alt="download" className="w-24 h-24"/>
                     <h1 className="text-xl">Your file is ready to download</h1>
                     <RenderFile file={{ format, name, sizeInBytes }}/>
-                    <button className="button">Download</button>
+                    <button className="button" onClick={handleDownload}>Download</button>
                 </>
             )}
         </div>
