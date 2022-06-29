@@ -2,7 +2,7 @@
 import '../styles/globals.css'
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "http://localhost:5001";
 
 function MyApp({Component, pageProps}) {
     return (

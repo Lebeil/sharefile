@@ -33,6 +33,11 @@ export default function Home() {
         }
     }
 
+    const resetComponent = ()=> {
+        setFile(null);
+        setDownloadPageLink(null);
+    }
+
     return (
         <div className="flex flex-col items-center justify-center">
             <h1 className="my-4 text-3xl font-medium">
@@ -63,7 +68,12 @@ export default function Home() {
                 {downloadPageLink &&
                     <div className="p-2 text-center">
                         <DownloadFile downloadPageLink={downloadPageLink}/>
-                        <button className="p-2 my-5 bg-gray-900 rounded-md w-44 focus:outline-none">Upload New File</button>
+                        <button
+                            className="p-2 my-5 bg-gray-900 rounded-md w-44 focus:outline-none"
+                            onClick={resetComponent}
+                        >
+                            Upload New File
+                        </button>
                     </div>
                 }
 
