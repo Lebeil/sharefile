@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import RenderFile from "../components/RenderFile";
 import axios from "axios";
 import DownloadFile from "../components/DownloadFile";
+import EmailForm from "../components/EmailForm";
 
 export default function Home() {
     const [file, setFile] = useState(null);
@@ -68,6 +69,7 @@ export default function Home() {
                 {downloadPageLink &&
                     <div className="p-2 text-center">
                         <DownloadFile downloadPageLink={downloadPageLink}/>
+                        <EmailForm id={id}/>
                         <button
                             className="button"
                             onClick={resetComponent}
