@@ -31,7 +31,7 @@ const fileSchema = new Schema({
     }
 );
 
-interface IFile extends Document {
+export interface IFile extends mongoose.Document {
     filename: string;
     secure_url: string;
     sizeInBytes: string;

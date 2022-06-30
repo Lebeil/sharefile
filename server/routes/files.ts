@@ -1,24 +1,20 @@
-import {Request, Response} from "express";
+import express from "express";
 
-const router = require('express').Router();
+const router = express.Router();
 const multer = require('multer');
+const uploadController = require('../controllers/upload.controller');
 
 const storage = multer.diskStorage({})
+let upload = multer({storage});
 
-let upload = multer({
-    storage
-});
+/*Upload*/
+router.post("/upload", upload.single("myFile"), uploadController.uploadPost);
 
-router.post("/upload", upload.single("myFile"), (req: Request, res: Response)=> {
-    try {
-        if(!req.file)
-            return res.status(400).json({ message: "We need your file!"})
-        console.log(req.file);
-    } catch(err) {
-        console.log(err);
-        res.status(500).json({message: "Server error"});
-    }
-});
+/*Download link*/
+router.get("/:id", uploadController.downloadLink)
+
+/*Download file*/
+router.get("/:id/download", uploadController.downloadFile)
 
 module.exports = router;
 
