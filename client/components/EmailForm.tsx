@@ -2,9 +2,9 @@ import React, {FunctionComponent, useState} from 'react';
 import axios from "axios";
 
 const EmailForm: FunctionComponent<{id: string;}> = ({id}) => {
-    const [emailForm, setEmailForm] = useState("");
+    const [emailFrom, setEmailFrom] = useState("");
     const [emailTo, setEmailTo] = useState("");
-    const [message, setMessage] = useState('null');
+    const [message, setMessage] = useState("");
 
     const handleEmail = async(e)=> {
         e.preventDefault();
@@ -14,7 +14,7 @@ const EmailForm: FunctionComponent<{id: string;}> = ({id}) => {
                 url: "api/files/email",
                 data: {
                     id,
-                    emailForm,
+                    emailFrom,
                     emailTo,
                 },
             });
@@ -34,8 +34,8 @@ const EmailForm: FunctionComponent<{id: string;}> = ({id}) => {
                     type="email"
                     placeholder="Email From"
                     required
-                    onChange={(e)=> setEmailForm(e.target.value)}
-                    value={emailForm}
+                    onChange={(e)=> setEmailFrom(e.target.value)}
+                    value={emailFrom}
                 />
                 <input
                     className="p-1 text-white bg-gray-800 border-2 focus:outline-none"
