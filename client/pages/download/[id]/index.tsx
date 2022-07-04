@@ -12,7 +12,7 @@ const index: NextPage<{
 
     const handleDownload = async ()=> {
         const { data } = await axios.get(
-                `http://localhost:5001/api/files/${id}/download`,
+                `api/files/${id}/download`,
                 {
                     responseType: "blob",
                 }
@@ -42,7 +42,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const {id} = context.query;
     let file;
     try {
-        const {data} = await axios.get(`http://localhost:5001/api/files/${id}`);
+        const {data} = await axios.get(`${process.env.API_ENDPOINT}/api/files/${id}`);
         file = data;
         console.log("next file data", data)
     } catch (error) {
