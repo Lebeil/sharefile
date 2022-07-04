@@ -46,7 +46,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         file = data;
         console.log("next file data", data)
     } catch (error) {
-        console.log(error.response.data);
+        console.log(error);
         file = {};
     }
 
